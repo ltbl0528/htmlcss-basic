@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>시멘틱 태그</title>
+    <style>
+        body{width: 500px;}
+        header, section, article, aside, footer{display: block; background: lightblue; margin: 5px;}
+        section{float: left; width: 340px; height: 400px;}
+        article{width: 300px; background: wheat;}
+        aside{float: left; width: 125px; height: 400px;}
+        footer{overflow: hidden; position: absolute; bottom: 0;}
+    </style>
+</head>
+<body>
+    <h1>시멘틱 태그</h1>
+    <div>구조화된 div?</div>
+    <header>
+        <!--웹 문서의 머릿글 부분을 작성-->
+        <h1>홍길동's Homepage!</h1>
+
+        <nav>
+            <!--웹 문서의 메뉴 영역-->
+            <!--ul>li*3-->
+            <ul>
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    공지사항
+                </li>
+                <li>
+                    게시판
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <!--웹 문서의 주요 주제 관련 내용-->
+        
+        <article>
+            <!--주제 관련 세부 내용 작성-->
+            첫 번째 주제!
+        </article>
+        
+        <article>두 번째 주제입니다!</article>
+        
+        <article>
+            <p>
+                세번째 주제입니다
+            </p>
+        </article>
+    
+    </section>
+    
+    <aside>
+        <!--섹션 옆의 사이드 영역-->
+        <!--주제와 관련이 적거나 상대적으로 덜 중요한 내용을 작성하는 영역-->
+        <p>
+            머리가 자주 빠지신다구요?<br>
+            항상 아침에 거울 보기 두려우시다구요?<br>
+            그런 분들을 위해 준비했습니다! <br>
+            한 줌조차 미련 없이, 깔끔함과 시원함을 한 번에!<br>
+        </p>
+    </aside>
+
+    <footer>
+        <!--해당 웹 문서의 저자, 사이트 저작권 정보나 소유주 표시하는 바닥글-->
+        Copyright by Who, All right reserved... <br>
+        본 문서는 어쩌구 입니다.
+    </footer>
+</body>
+</html>
