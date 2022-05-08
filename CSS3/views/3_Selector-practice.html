@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>선택자 실습</title>
+    <style>
+      #savingTable {
+        border: 1px solid black;
+        width: 200px;
+        text-align: center;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+      }
+      .plus {
+        color: red;
+      }
+      .minus {
+        color: blue;
+      }
+      tbody {
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>실습 문제1</h1>
+    <h4>
+      나의 용돈 기입장 :
+      <button type="button" style="font-weight: bold; background: lightgreen">
+        조회하기
+      </button>
+    </h4>
+
+    <table id="savingTable">
+      <thead>
+        <th>월</th>
+        <th>저금 목록</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1월</td>
+          <td class="plus">+1,000원</td>
+        </tr>
+        <tr>
+          <td>2월</td>
+          <td class="minus">-30,000원</td>
+        </tr>
+        <tr>
+          <td>3월</td>
+          <td class="plus">+7,000원</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <td colspan="2">합계 : -22,000원</td>
+      </tfoot>
+    </table>
+    <br /><br /><br />
+    <a href="0_index.html">처음으로 돌아가기...</a>
+  </body>
+</html>

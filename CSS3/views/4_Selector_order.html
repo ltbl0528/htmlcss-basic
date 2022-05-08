@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>선택자 우선순위</title>
+    <style>
+      /*test1 클래스를 속성으로 가진 태그들만 스타일 적용*/
+      .test1 {
+        /*background: lightgreen;*/
+        background: lightgreen !important; 
+        /*!important : 얘는 양보할 생각 없어 
+        (어떤 우선순위가 되는 선택자가 오더라도 무조건 이 스타일로 강제)*/
+        color: green;
+      }
+
+      /*div 태그 모두 스타일 적용*/
+      div {
+        width: 100px;
+        height: 100px;
+        background: gold;
+      }
+
+      /*test1 id를 속성으로 가진 태그들만 스타일 적용*/
+      #test1 {
+        background: tomato;
+        color: yellow;
+      }
+
+      /* ↑ 요기까지 중에는 id가 가장 우선순위가 높다 */
+    </style>
+  </head>
+  <body>
+    <h1>선택자 우선순위</h1>
+
+    <p>
+        important > inline > id > class > tag(type) > universal
+    </p>
+
+    <!--div#test$.test${우선순위 테스트 $ }*2-->
+    <!--inline에 적용된 스타일이 가장 높은 우선순위를 가짐을 알 수 있다-->
+    <div id="test1" class="test1" style="background: lightblue; color: orange">
+      우선순위 테스트1
+    </div>
+    <div id="test2" class="test2">우선순위 테스트2</div>
+
+    <br /><br /><br />
+    <a href="0_index.html">처음으로 돌아가기...</a>
+  </body>
+</html>

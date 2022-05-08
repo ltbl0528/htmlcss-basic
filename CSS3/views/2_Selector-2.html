@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS 선택자 2</title>
+    <style>
+      /*선택자[속성명] : 해당 속성을 가진 태그들을 선택
+        -> '속성 선택자' 라고 함*/
+      span[name] {
+        font-weight: bold;
+      }
+
+      /* = : 실제 값이 같은 태그를 선택 (대소문자 구별)*/
+      span[name="Alice"] {
+        color: hotpink;
+      }
+
+      /* ^= : 특정 단어로 시작하는 태그 선택(대소문자 구별)*/
+      span[name^="B"] {
+        color: purple;
+      }
+
+      /* $= : 특정 단어로 끝나는 태그 선택 (대소문자 구별)*/
+      span[name$="e"] {
+        background: yellowgreen;
+      }
+
+      /* *= : 특정 단어를 포함하는 태그 선택 (대소문자 구별)*/
+      span.Tony[name*="O"] {
+        background: cyan;
+      }
+
+      /* 자손 선택자 */
+      #test1 > h4 {
+        background: yellow;
+      }
+
+      /*#test1>ul>li>h4 {
+          background: yellow;
+      }*/
+
+      /* 후손 선택자 */
+      #test1 h4 {
+        color: red;
+      }
+
+      #firstPos {
+        background: cyan;
+        color: red;
+      }
+
+      /*+를 하면 바로 뒤에 있는 태그에 적용
+      ~를 하면 자기 자신을 제외한 나머지 모든 태그
+      잘 안 쓰니까 이런 게 있구나 정도로만 알아두기*/
+      #firstPos ~ span {
+        color: blue;
+      }
+
+      /*상태 선택자 - 마우스*/
+      #active-test,
+      #hover-test {
+        /*기본 상태*/
+        width: 70px;
+        height: 70px;
+        background: lightskyblue;
+        margin: 10px;
+        text-align: center;
+      }
+
+      /*마우스 클릭하면 active, 올려놓으면 hover*/
+      #active-test:active {
+        background: black;
+        color: aliceblue;
+      }
+
+      #hover-test:hover {
+        background: plum;
+        color: darkblue;
+      }
+
+      /*입력 양식 선택자*/
+      input[name*="fru"]:checked {
+        width: 20px;
+        height: 20px;
+      }
+
+      /*마우스 클릭해서 input에 포커스가 맞춰졌을 경우*/
+      #search:focus {
+        border: 3px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>속성 선택자</h1>
+    <p>
+      기본 선택자 뒤에 []를 붙여 특정 속성과<br />
+      해당 속성의 값을 가지는 태그를 선택하는 선택자
+    </p>
+
+    <pre>
+        선택자[속성 = 속성값] { ... }
+        = : 해당 속성값을 가질 때
+        ~ : 특정 단어를 속성값으로 가질 때 (띄어쓰기로 구분)
+        |= : 특정 단어를 속성 값으로 가질 때 ("" 로 구분)
+        ^= : 속성값이 특정 단어로 시작할 때
+        $= : 속성값이 특정 단어로 끝날 때
+        *= : 속성값이 특정 단어를 포함할 때
+    </pre>
+    <!--span{test$}*5-->
+    <span name="Alice">test1 : Alice</span><br />
+    <span name="Bob">test2 : Bob</span><br />
+    <span name="Stark">test3 : Stark</span><br />
+    <span class="Tony" name="Oscar">test4 : Oscar</span><br />
+    <span class="Tony" name="Luke">test5 : Luke</span><br />
+
+    <hr />
+
+    <h2>자손 선택자와 후손 선택자</h2>
+    <p>
+      자손 선택자 : 해당 선택자 바로 아래에 있는 요소들 <br />
+      후손 선택자 : 하위의 모든 요소
+    </p>
+
+    <pre>
+        자손 : 부모 선택자 > 자손 선택자 {. . .}
+        후손 : 부모 선택자 후손 선택자 {. . .}
+    </pre>
+
+    <!--부모 요소-->
+    <div id="test1">
+      <!--자손 요소-->
+      <h4>나는 자손 스티븐입니다</h4>
+      <h4>나는 자손 마크입니다</h4>
+
+      <ul id="testul">
+        나는 자손 리스트입니다.
+        <li>
+          <!--후손 요소-->
+          나는 ul의 자손이자, div의 후손입니다.
+          <h4>나는 ul의 후손입니다.</h4>
+        </li>
+        <li>나는 ul의 자손이자, div의 후손입니다.</li>
+        <li>나는 ul의 자손이자, div의 후손입니다.</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <h3>동위 선택자</h3>
+
+    <!--(span.pos{ $번째 }+br)*5-->
+    <span id="firstPos" class="pos"> 1번째 </span><br />
+    <span class="pos"> 2번째 </span><br />
+    <span id="thirdPos" class="pos"> 3번째 </span><br />
+    <span class="pos"> 4번째 </span><br />
+    <span class="pos"> 5번째 </span><br />
+
+    <hr />
+
+    <h3>상태 선택자</h3>
+
+    <p>
+      해당 태그가 어떤 상태인지에 따라 여러 가지 스타일을<br />
+      적용할 수 있는 선택자
+    </p>
+
+    <h4>마우스 상태 선택자</h4>
+
+    <div id="active-test">테스트1</div>
+    <div id="hover-test">테스트2</div>
+
+    <h4>입력 양식 선택자</h4>
+
+    <!--input:checkbox[name=fruits]*3-->
+    <input type="checkbox" name="fruits" id="apple" />사과<br />
+    <input type="checkbox" name="fruits" id="pear" />배<br />
+    <input type="checkbox" name="fruits" id="grapes" />포도<br />
+
+    <br />
+
+    입력: <input type="text" name="search" id="search" />
+
+    <br /><br /><br />
+    <a href="0_index.html">처음으로 돌아가기...</a>
+  </body>
+</html>

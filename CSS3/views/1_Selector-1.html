@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      /*
+          style 태그 안에서의 주석 처리
+          id를 줬을 때 id를 찾아갈 수 있도록 지정하는 것이
+          id 선택자
+
+          여러 개를 선택하려면?? 어떻게 해야 할까
+          -> 클래스 사용
+          */
+      #color {
+        color: red;
+      }
+      .group1 {
+        color: tomato;
+      }
+      .group2 {
+        background: lightpink;
+      }
+      /*
+        태그 선택자
+        해당 태그의 스타일을 모두 바꿈
+        but 클래스 선택자는 안 바뀜
+        ->즉, 선택자 사이에도 우선 순위가 있다.
+      */
+      li {
+          background: lightyellow;
+      }
+
+      /*
+        전체 선택자
+        모든 타입의 스타일을 바꿈
+      */
+      * {
+        color: brown;
+      }
+      /*
+      우선 순위는 범위가 큰 것이 가장 낮고, 작은 것이 가장 높음
+      (고)inline -> id -> class -> type -> universal(저)
+      */
+    </style>
+
+    <title>선택자 1</title>
+  </head>
+  <body>
+    <h1>CSS 선택자 1</h1>
+
+    <ol>
+      <!--inline style 적용
+            장점: 내가 필요한 코드를 즉석으로 바로바로 만들 수 있음
+            단점: 같은 스타일을 필요로 할 때도 일일이 적용해야 함-->
+      <li style="color: red">1번 li입니다.</li>
+      <!--id 선택자-->
+      <li id="color">2번 li입니다.</li>
+      <!--class 선택자-->
+      <li class="group1">3번 li입니다.</li>
+      <li class="group2">4번 li입니다.</li>
+      <li class="group1">5번 li입니다.</li>
+    </ol>
+
+    <br />
+
+    <h4>다른 li Group</h4>
+    <ul>
+        <li>다른 li color</li>
+        <li>다른 li color</li>
+        <li>다른 li color</li>
+        <li>다른 li color</li>
+        <li>다른 li color</li>
+    </ul>
+
+    <br /><br /><br />
+    <a href="0_index.html">처음으로 돌아가기...</a>
+    <br /><br /><br />
+  </body>
+</html>
